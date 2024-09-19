@@ -1,3 +1,3 @@
 export function App() {
-  return <h1>in.orbit</h1>
+  return <h1 className="font-bold text-3xl">in.orbit</h1>
 }

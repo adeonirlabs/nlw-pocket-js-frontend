@@ -25,6 +25,16 @@
       "correctness": {
         "noUnusedImports": "warn"
       },
+      "nursery": {
+				"useSortedClasses": {
+					"level": "error",
+					"fix": "safe",
+          "options": {
+            "attributes": ["classList"],
+            "functions": ["clsx", "cva", "tw"]
+          }
+				}
+			},
       "style": {
         "noVar": "error",
         "useConst": "error",
