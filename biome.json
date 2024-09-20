@@ -28,7 +28,7 @@
 					"fix": "safe",
           "options": {
             "attributes": ["classList"],
-            "functions": ["clsx", "cva", "tw"]
+            "functions": ["clsx", "cva", "tw", "tv", "cn"]
           }
 				}
 			},
