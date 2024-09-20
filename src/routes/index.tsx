@@ -3,6 +3,7 @@ import { Plus } from 'lucide-react'
 
 import letsStartIllustration from '~/assets/illustrations/lets-start.svg'
 import logo from '~/assets/logo-in.orbit.svg'
+import { Button } from '~/components/ui/button'
 
 export const Route = createFileRoute('/')({
   component: Index,
@@ -16,12 +17,9 @@ function Index() {
       <p className="max-w-80 text-center text-zinc-300 leading-relaxed">
         Você ainda não cadastrou nenhuma meta, que tal cadastrar um agora mesmo?
       </p>
-      <button
-        type="button"
-        className="flex cursor-pointer items-center gap-2 rounded-lg bg-violet-500 px-4 py-2.5 font-medium text-sm text-violet-50 transition hover:bg-violet-600"
-      >
+      <Button>
         <Plus className="size-4" /> Cadastrar meta
-      </button>
+      </Button>
     </div>
   )
 }
