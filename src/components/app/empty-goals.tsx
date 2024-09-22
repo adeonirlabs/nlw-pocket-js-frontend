@@ -7,7 +7,7 @@ import { Dialog } from '~/components/ui/dialog'
 
 export function EmptyGoals() {
   return (
-    <div className="mx-auto flex h-screen max-w-md flex-col items-center justify-center gap-8 px-5 py-10">
+    <div className="mx-auto flex h-screen max-w-lg flex-col items-center justify-center gap-8 px-5 py-10">
       <BrandLogo className="h-9" />
       <img className="size-80" src={letsStartIllustration} alt="Let's start" />
       <p className="max-w-80 text-center text-zinc-300 leading-relaxed">

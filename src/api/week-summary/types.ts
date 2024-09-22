@@ -1,4 +1,4 @@
-type Goal = {
+export type Goal = {
   id: string
   title: string
   completedAt: string
