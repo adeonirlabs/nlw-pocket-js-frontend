@@ -1,9 +1,8 @@
 import dayjs from 'dayjs'
 import ptBR from 'dayjs/locale/pt-br'
-import { CheckCircle2, Plus } from 'lucide-react'
+import { Plus } from 'lucide-react'
 
-import { useGetWeekSummaryQuery } from '~/api/week-summary'
-import type { Goal } from '~/api/week-summary/types'
+import { useSummaryQuery } from '~/api/summary'
 import { PendingGoals } from '~/components/app/pending-goals'
 import { SummaryList } from '~/components/app/summary-list'
 import { BrandIcon } from '~/components/icons/brand-icon'
@@ -15,7 +14,7 @@ import { Separator } from '~/components/ui/separator'
 dayjs.locale(ptBR)
 
 export function WeekSummary() {
-  const { data } = useGetWeekSummaryQuery()
+  const { data } = useSummaryQuery()
 
   if (!data) return null
 

@@ -1,11 +1,11 @@
 import dayjs from 'dayjs'
 import { CheckCircle2 } from 'lucide-react'
 
-import { useGetWeekSummaryQuery } from '~/api/week-summary'
-import type { Goal } from '~/api/week-summary/types'
+import { useSummaryQuery } from '~/api/summary'
+import type { Goal } from '~/api/summary/types'
 
 export function SummaryList() {
-  const { data } = useGetWeekSummaryQuery()
+  const { data } = useSummaryQuery()
 
   if (!data) return null
 

@@ -4,7 +4,7 @@ export type Goal = {
   completedAt: string
 }
 
-export type WeekSummaryResponse = {
+export type SummaryResponse = {
   completedCount: number
   totalCount: number
   goalsPerDay: Record<string, Goal[]>

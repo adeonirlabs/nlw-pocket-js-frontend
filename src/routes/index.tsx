@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 
-import { useGetWeekSummaryQuery } from '~/api/week-summary'
+import { useSummaryQuery } from '~/api/summary'
 import { CreateGoal } from '~/components/app/create-goal'
 import { EmptyGoals } from '~/components/app/empty-goals'
 import { WeekSummary } from '~/components/app/week-summary'
@@ -11,7 +11,7 @@ export const Route = createFileRoute('/')({
 })
 
 function Index() {
-  const { data: summary } = useGetWeekSummaryQuery()
+  const { data: summary } = useSummaryQuery()
 
   return (
     <Dialog>
