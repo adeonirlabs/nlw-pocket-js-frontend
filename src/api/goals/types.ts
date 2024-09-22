@@ -4,3 +4,7 @@ export type PendingGoalsResponse = {
   desiredFrequency: number
   completedCount: number
 }[]
+
+export type CompleteGoalRequest = {
+  goalId: string
+}
