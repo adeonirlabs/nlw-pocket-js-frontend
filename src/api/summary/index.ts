@@ -8,7 +8,7 @@ const endpoint = {
   weekSummary: () => 'week-summary',
 }
 
-const summaryKeys = {
+export const summaryKeys = {
   all: ['week-summary'] as const,
   lists: () => [...summaryKeys.all, 'list'] as const,
   list: (filters: string) => [...summaryKeys.lists(), { filters }] as const,
@@ -22,6 +22,7 @@ const summaryApi = {
       queryKey: summaryKeys.all,
       queryFn: async () =>
         await api.get<SummaryResponse>(endpoint.weekSummary()).json(),
+      staleTime: 1000 * 60, // 1 minute
     })
   },
 }
