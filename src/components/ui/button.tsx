@@ -6,6 +6,7 @@ const button = tv({
   base: [
     'flex items-center justify-center gap-2 rounded-lg font-medium text-sm ',
     'outline-none ring-offset-2 ring-offset-black transition focus-visible:ring-2',
+    'disabled:pointer-events-none disabled:opacity-50',
   ],
   variants: {
     variant: {
@@ -23,9 +24,6 @@ const button = tv({
       md: 'px-4 py-2.5',
       sm: 'px-3 py-1.5',
       icon: 'p-1',
-    },
-    disabled: {
-      true: 'pointer-events-none opacity-50',
     },
   },
   defaultVariants: {
