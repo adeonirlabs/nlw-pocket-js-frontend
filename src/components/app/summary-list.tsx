@@ -23,11 +23,14 @@ export function SummaryList() {
               <span className="text-xs text-zinc-400">({dayOfMonth})</span>
             </h3>
             <ul className="flex flex-col gap-3">
-              {goals.map((goal: Goal) => {
+              {goals.map((goal: Goal, index) => {
                 const time = dayjs(goal.completedAt).format('HH:mm')
 
                 return (
-                  <li className="flex items-center gap-2" key={goal.id}>
+                  <li
+                    className="flex items-center gap-2"
+                    key={`${goal.id}${index}`}
+                  >
                     <CheckCircle2 className="size-4 text-pink-500" />
                     <span className="text-sm text-zinc-400">
                       {'  Você completou '}
