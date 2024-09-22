@@ -1,10 +1,10 @@
 import { Plus } from 'lucide-react'
 
-import { useGetPendingGoalsQuery } from '~/api/pending-goals'
+import { usePendingGoalsQuery } from '~/api/goals'
 import { Button } from '~/components/ui/button'
 
 export function PendingGoals() {
-  const { data } = useGetPendingGoalsQuery()
+  const { data } = usePendingGoalsQuery()
 
   if (!data) return null
 
