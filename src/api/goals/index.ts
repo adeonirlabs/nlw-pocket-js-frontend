@@ -1,11 +1,17 @@
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { useMutation, useQuery } from '@tanstack/react-query'
 
 import { api } from '~/api'
-
 import { summaryKeys } from '~/api/summary'
-import type { CompleteGoalRequest, PendingGoalsResponse } from './types'
+import { queryClient } from '~/lib/query-client'
+
+import type {
+  CompleteGoalRequest,
+  CreateGoalRequest,
+  PendingGoalsResponse,
+} from './types'
 
 const endpoint = {
+  createGoal: () => 'goals',
   pendingGoals: () => 'pending-goals',
   completeGoal: () => 'complete-goal',
 }
@@ -20,6 +26,17 @@ const pendingGoalsKeys = {
 }
 
 export const goalsApi = {
+  useCreateGoalMutation: () => {
+    return useMutation({
+      mutationKey: ['create-goal'],
+      mutationFn: async (goal: CreateGoalRequest) =>
+        await api.post(endpoint.createGoal(), { json: goal }).json(),
+      onSuccess: () => {
+        queryClient.invalidateQueries({ queryKey: pendingGoalsKeys.all })
+        queryClient.invalidateQueries({ queryKey: summaryKeys.all })
+      },
+    })
+  },
   usePendingGoalsQuery: () => {
     return useQuery({
       queryKey: pendingGoalsKeys.all,
@@ -28,7 +45,6 @@ export const goalsApi = {
     })
   },
   useCompleteGoalMutation: () => {
-    const queryClient = useQueryClient()
     return useMutation({
       mutationKey: ['complete-goal'],
       mutationFn: async (goalId: string) =>
@@ -45,4 +61,8 @@ export const goalsApi = {
   },
 }
 
-export const { usePendingGoalsQuery, useCompleteGoalMutation } = goalsApi
+export const {
+  useCreateGoalMutation,
+  usePendingGoalsQuery,
+  useCompleteGoalMutation,
+} = goalsApi

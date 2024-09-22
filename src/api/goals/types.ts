@@ -1,3 +1,8 @@
+export type CreateGoalRequest = {
+  title: string
+  desiredFrequency: number
+}
+
 export type PendingGoalsResponse = {
   id: string
   title: string
