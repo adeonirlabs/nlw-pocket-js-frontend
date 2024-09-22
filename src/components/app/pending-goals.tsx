@@ -18,6 +18,7 @@ export function PendingGoals() {
       {data?.map((goal) => (
         <Button
           key={goal.id}
+          className="rounded-full py-1.5 "
           variant="outline"
           disabled={goal.completedCount >= goal.desiredFrequency}
           onClick={() => handleCompleteGoal(goal.id)}
