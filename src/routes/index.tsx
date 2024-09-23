@@ -1,4 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { useState } from 'react'
 
 import { useSummaryQuery } from '~/api/summary'
 import { CreateGoal } from '~/components/app/create-goal'
@@ -11,12 +12,13 @@ export const Route = createFileRoute('/')({
 })
 
 function Index() {
+  const [open, setOpen] = useState(false)
   const { data: summary } = useSummaryQuery()
 
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       {summary?.totalCount ? <WeekSummary /> : <EmptyGoals />}
-      <CreateGoal />
+      <CreateGoal onOpenChange={setOpen} />
     </Dialog>
   )
 }

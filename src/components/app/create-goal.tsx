@@ -21,7 +21,11 @@ const createGoalSchema = z.object({
 
 type CreateGoalFormData = z.infer<typeof createGoalSchema>
 
-export function CreateGoal() {
+interface CreateGoalProps {
+  onOpenChange: (open: boolean) => void
+}
+
+export function CreateGoal({ onOpenChange }: CreateGoalProps) {
   const { mutateAsync: createGoal } = useCreateGoalMutation()
 
   const {
@@ -37,6 +41,7 @@ export function CreateGoal() {
   const handleSubmit = form.handleSubmit(async (data) => {
     await createGoal(data)
     reset()
+    onOpenChange(false)
   })
 
   return (
